@@ -1,4 +1,3 @@
-eniro-ggm
-=========
-
 Eniro-GeekGirlMeetup
+===
+Demo demonstrating Eniro's API

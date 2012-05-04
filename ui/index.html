@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Eniro API Demo</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap-tab.js"></script>
+		<script type="text/javascript" src="http://kartor.eniro.se/rs/eniro.js?partnerId=iX7pJjqecBI=&profile=se"></script>
+		<script type="text/javascript" src="js/custom.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="container" id="navigation">
+				<div class="row">
+					<div class="span2" id="logoapi">
+						<img src="img/eniro.api.logo.png">
+					</div>
+					<div class="span9 offset1">
+						<nav class="tabbable">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#tab1" data-toggle="tab">Map</a></li>
+								<li><a href="#tab2" data-toggle="tab">Good news!</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<article>
+			<div class="container">
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab1">
+						<p>Should there be a map?</p>
+						<div id="mymap"></div>
+					</div>
+					<div class="tab-pane" id="tab2">
+						<p>Howdy, here we could write some good news :-)</p>
+					</div>
+				</div>
+			</div>
+		</article>
+	</body>
+</html>

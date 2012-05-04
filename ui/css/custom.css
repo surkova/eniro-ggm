@@ -1,0 +1,43 @@
+body {
+  background-color: #eee;
+  font: 12px Tahoma, Arial, Geneva, Kalimati, sans-serif;
+}
+header {
+  background-color: #424242;
+  height: 60px;
+}
+nav .nav {
+  margin-bottom: 0px;
+}
+nav .nav-tabs {
+  border: none;
+}
+nav .nav-tabs .active a {
+  background-color: #eee;
+  color: #000;
+}
+nav .nav-tabs .active a:hover {
+  background-color: #eee;
+  color: #000;
+}
+nav .nav-tabs li a {
+  color: #eee;
+  padding: 5px 14px;
+  line-height: 10px;
+}
+nav .nav-tabs li a:hover {
+  color: #95C7F6;
+  background: none;
+  border-color: transparent;
+}
+#navigation {
+  padding-top: 40px;
+}
+#logoapi {
+  position: relative;
+  bottom: 10px;
+}
+#mymap {
+  width: 500px;
+  height: 300px;
+}
