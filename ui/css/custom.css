@@ -30,6 +30,17 @@ nav .nav-tabs li a:hover {
   background: none;
   border-color: transparent;
 }
+article .container {
+  background-color: #fff;
+  margin-top: 2em;
+  padding: 1em;
+  border-radius: 1em;
+  border: 1px solid #ccc;
+}
+h1 {
+  font: bold 2.5em "American Typewriter", "Helvetica Neue", Arial, sans-serif;
+  color: #f00;
+}
 #navigation {
   padding-top: 40px;
 }
@@ -38,6 +49,9 @@ nav .nav-tabs li a:hover {
   bottom: 10px;
 }
 #mymap {
-  width: 500px;
-  height: 300px;
+  width: 600px;
+  height: 500px;
+}
+#mymap .e-map:focus {
+  outline: none;
 }
