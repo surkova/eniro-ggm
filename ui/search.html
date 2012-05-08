@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Eniro API Demo</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://kartor.eniro.se/rs/eniro.js?partnerId=iX7pJjqecBI=&profile=se"></script>
+	</head>
+	<body>
+		<header>
+			<div class="container" id="navigation">
+				<div id="logoapi">
+					<img src="img/eniro.api.logo.png">
+				</div>
+			</div>
+		</header>
+		<article>
+			<div class="container">
+				<h1>Sök</h1>
+				<div>
+					<form class="form-search">
+						<input placeholder="Blommor" class="input-xxlarge search-query">
+						<button class="btn">Sök</button>
+					</form>
+				</div>
+				<div id="searchResults">
+				</div>
+				<script type="text/javascript" src="js/search.js"></script>
+			</div>
+		</article>
+	</body>
+</html>
