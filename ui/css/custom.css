@@ -55,3 +55,6 @@ h1 {
 #mymap .e-map:focus {
   outline: none;
 }
+#mymap .popupInfo {
+  width: 150px;
+}
