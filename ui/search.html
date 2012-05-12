@@ -19,14 +19,24 @@
 		</header>
 		<article>
 			<div class="container">
-				<h1>Sök</h1>
-				<div>
-					<form class="form-search">
-						<input placeholder="Blommor" id="req" class="input-xxlarge search-query">
-						<button class="btn" id="sok">Sök</button>
-					</form>
-				</div>
-				<div id="searchResults">
+				<div class="row">
+					<div class="span4">
+						<h2>Karta</h2>
+						<div id="karta"></div>
+					</div>
+					<div class="span8">
+						<h1>Sök</h1>
+						<div>
+							<form class="form-search">
+								<input placeholder="Vad?" id="req" class="input-xlarge search-query">
+								<input placeholder="Var?" id="sokarea" class="input-large search-query">
+								<button class="btn" id="sok">Sök</button>
+							</form>
+						</div>
+						<div id="searchResults">
+							<img src="img/vargen.png" title="Vargen">
+						</div>
+					</div>
 				</div>
 				<script type="text/javascript" src="js/search.js"></script>
 			</div>
