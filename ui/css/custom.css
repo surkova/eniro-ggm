@@ -40,17 +40,21 @@ article .container {
 }
 h1 {
   font: bold 2.5em "American Typewriter", "Helvetica Neue", Arial, sans-serif;
-  color: #f00;
+  color: #FBFFE3;
 }
 h2 {
-  font: bold 2em "American Typewriter", "Helvetica Neue", Arial, sans-serif;
+  font: bold 2em Tahoma, Arial, Geneva, Kalimati, sans-serif;
+  color: #9E0C39;
+}
+h4 {
+  color: #83A300;
 }
 #navigation {
   padding-top: 40px;
 }
 #logoapi {
   position: relative;
-  bottom: 10px;
+  bottom: 35px;
 }
 #mymap {
   width: 600px;
@@ -62,15 +66,18 @@ h2 {
 #mymap .popupInfo {
   width: 150px;
 }
-#karta {
-  width: 300px;
-  height: 600px;
+#map {
+  width: 360px;
+  height: 461px;
 }
-#karta .e-map:focus {
+#map .e-map:focus {
   outline: none;
 }
 #searchResults img {
   position: relative;
   top: 180px;
   right: -250px;
+}
+.delivery {
+  font: bold 1.8em Tahoma, Arial, Geneva, Kalimati, sans-serif;
 }

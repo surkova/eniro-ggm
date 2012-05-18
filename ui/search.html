@@ -13,33 +13,58 @@
 		<header>
 			<div class="container" id="navigation">
 				<div id="logoapi">
-					<img src="img/eniro.api.logo.png">
+					<!--<img src="img/eniro.api.logo.png">-->
+					<h1>Rödluvan the leverantör</h1>
+					<h4>Levererar sedan urminnes tiden</h4>
 				</div>
 			</div>
 		</header>
 		<article>
 			<div class="container">
 				<div class="row">
-					<div class="span4">
-						<h2>Karta</h2>
-						<div id="karta"></div>
+					<div class="span12">
+					<h2>Karta</h2>
+					
+					<div class="row">
+						<div class="span5">
+							<div id="map">
+								<!--the map-->
+							</div>
+						</div>
+						<div class="span7">
+							<div class="hero-unit">
+								<h1>Rödluvans budservice</h1>
+								<form class="form-search">
+									<label class="delivery">Leverera till</label>
+									<input class="span5" placeholder="Din adress" id="delivery-to">
+									<span class="help-block">Exempel: Odengatan 13 Stockholm</span>
+									<label class="delivery">Leverera från</label>
+									<input class="span5" placeholder="Butiks adress" id="delivery-from">
+									<span class="help-block">Exempel: Forskarbacken 11 Stockholm</span>
+									<button class="btn btn-danger btn-large">Leverera!</button>
+								</form>
+							</div>
+						</div>
 					</div>
-					<div class="span8">
-						<h1>Sök</h1>
+					</div>
+				</div>
+				<hr />
+				<div class="row">
+					<div class="span12">
+						<h2>Sök</h2>
 						<div>
 							<form class="form-search">
-								<input placeholder="Vad?" id="req" class="input-xlarge search-query">
-								<input placeholder="Var?" id="sokarea" class="input-large search-query">
+								<input placeholder="Vad?" id="req" class="input-xxlarge search-query">
 								<button class="btn" id="sok">Sök</button>
 							</form>
 						</div>
 						<div id="searchResults">
-							<img src="img/vargen.png" title="Vargen">
+							<!--this div should be cleaned up to refresh search results-->
 						</div>
 					</div>
 				</div>
-				<script type="text/javascript" src="js/search.js"></script>
 			</div>
 		</article>
+		<script type="text/javascript" src="js/search.js"></script>
 	</body>
 </html>
