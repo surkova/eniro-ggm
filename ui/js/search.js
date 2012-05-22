@@ -63,6 +63,16 @@ $(function () {
 						var tpl = $('#searchTpl').html();
 						var searchHit = Mustache.to_html(tpl, {x: val, r: ratingData});
 						$('#searchResults').append(searchHit);
+						
+						/*button "leverera från dom" that appears in the search results. 
+						it copies delivery company's address to the form input*/
+						$(".deliveryHere").click(function () {
+							var address = $(this).parent().parent().find(".deliveryAddress").html();
+							var div = document.createElement("div");
+							div.innerHTML = address;
+							var text = div.textContent || div.innerText || "";
+							$("#deliveryFrom").val(text);
+						});
 					});
 				})
 
@@ -70,9 +80,4 @@ $(function () {
 		return false;
 	});
 	
-	/*button "leverera från dom" that appears in the search results. 
-	it copies delivery company's address to the form input*/
-	$(".deliveryHere").click(function () {
-		
-	});
 });
