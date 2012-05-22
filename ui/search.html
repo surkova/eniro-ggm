@@ -4,16 +4,18 @@
 		<title>Eniro API Demo</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="css/custom.css">
 		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/mustache.js"></script>
 		<script type="text/javascript" src="http://kartor.eniro.se/rs/eniro.js?partnerId=iX7pJjqecBI=&profile=se"></script>
 	</head>
 	<body>
 		<header>
 			<div class="container" id="navigation">
 				<div id="logoapi">
-					<!--<img src="img/eniro.api.logo.png">-->
 					<h1>Rödluvan the leverantör</h1>
 					<h4>Levererar sedan urminnes tiden</h4>
 				</div>
@@ -35,12 +37,12 @@
 							<div class="hero-unit">
 								<h1>Rödluvans budservice</h1>
 								<form class="form-search">
-									<label class="delivery">Leverera till</label>
-									<input class="span5" placeholder="Din adress" id="delivery-to">
+									<label class="delivery">Leverera till mig från</label>
+									<input class="span5" placeholder="Skriv in företagsadress" id="deliveryFrom">
 									<span class="help-block">Exempel: Odengatan 13 Stockholm</span>
-									<label class="delivery">Leverera från</label>
-									<input class="span5" placeholder="Butiks adress" id="delivery-from">
-									<span class="help-block">Exempel: Forskarbacken 11 Stockholm</span>
+									<label class="delivery">Datum</label>
+									<input type="text" id="datepicker" class="span5">
+									<span class="help-block">Skriv in leveransdatum</span>
 									<button class="btn btn-danger btn-large">Leverera!</button>
 								</form>
 							</div>
@@ -61,6 +63,30 @@
 						<div id="searchResults">
 							<!--this div should be cleaned up to refresh search results-->
 						</div>
+						<script id="searchTpl" type="text/template">
+						<div class="well">
+							<div class="row">
+								<div class="span5">
+									<h3>
+										<a href="{{x.companyReviews}}">{{#x.companyInfo}}{{companyName}}{{/x.companyInfo}}</a>
+									{{#r.adverts}}
+										{{#rating.averageRating}}<span class="badge badge-important" title="Rejta rating"><i class="icon-thumbs-up icon-white"></i> {{rating.averageRating}}</span>{{/rating.averageRating}}
+										{{^rating.averageRating}}{{/rating.averageRating}}
+									{{/r.adverts}}
+									</h3>
+									{{#x.address}}
+										<p class="deliveryAddress">{{streetName}}<br />{{postCode}} {{postArea}}</p>
+									{{/x.address}}
+									{{#x.phoneNumbers}}
+										<span>{{type}} {{phoneNumber}}</span><br />
+									{{/x.phoneNumbers}}
+								</div>
+								<div class="span3">
+									<button class="btn" class="deliveryHere"><i class="icon-circle-arrow-right"></i> Leverera från dom</button>
+								</div>
+							</div>
+						</div>
+						</script>
 					</div>
 				</div>
 			</div>
