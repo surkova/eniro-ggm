@@ -41,14 +41,13 @@ $(function () {
 		/*pass req and current geolocation, get json response from Eniro
 		display company name with rejta url, rejta rating, company address and phone for each hit
 		return false not to refresh the page*/
-		$.getJSON("http://api.eniro.com/cs/proximity/basic", {
+		$.getJSON("http://api.eniro.com/cs/search/basic", {
 				profile: "ggmprox",
 				key: "3263099275612453667",
 				country: "se",
 				version: "1.1.3",
 				search_word: req,
-				latitude: currentLocation.y,
-				longitude: currentLocation.x
+				
 			},
 			function(proximityData) {
 				$("#searchResults").empty();
