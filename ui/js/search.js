@@ -33,10 +33,10 @@ $(function () {
 		//take the content of the input field
 		var req = $("#req").val();
 
-		if (jQuery.isEmptyObject(currentLocation)) {
+		/*if (jQuery.isEmptyObject(currentLocation)) {
 			$("#searchResults").append("<p>Var är du nånstans?</p>");
 			return false;
-		}
+		}*/
 
 		/*pass req and current geolocation, get json response from Eniro
 		display company name with rejta url, rejta rating, company address and phone for each hit
@@ -46,8 +46,7 @@ $(function () {
 				key: "3263099275612453667",
 				country: "se",
 				version: "1.1.3",
-				search_word: req,
-				
+				search_word: req
 			},
 			function(proximityData) {
 				$("#searchResults").empty();
@@ -65,7 +64,7 @@ $(function () {
 					eniro.maps.event.addListener(marker, 'click', function () {
 						var infoWindow = new eniro.maps.InfoWindow();
 						infoWindow.setContent(val.companyInfo.companyName);
-						infoWindow.open(marker);
+						infoWindow.open(this);
 					});
 					
 					//array of markers to destroy them afterwards
