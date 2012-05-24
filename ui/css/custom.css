@@ -7,30 +7,6 @@ header {
   background-color: #424242;
   height: 60px;
 }
-nav .nav {
-  margin-bottom: 0px;
-}
-nav .nav-tabs {
-  border: none;
-}
-nav .nav-tabs .active a {
-  background-color: #eee;
-  color: #000;
-}
-nav .nav-tabs .active a:hover {
-  background-color: #eee;
-  color: #000;
-}
-nav .nav-tabs li a {
-  color: #eee;
-  padding: 5px 14px;
-  line-height: 10px;
-}
-nav .nav-tabs li a:hover {
-  color: #95C7F6;
-  background: none;
-  border-color: transparent;
-}
 article .container {
   background-color: #fff;
   margin-top: 2em;
@@ -58,7 +34,7 @@ h4 {
 }
 #mymap {
   width: 600px;
-  height: 500px;
+  height: 385px;
 }
 #mymap .e-map:focus {
   outline: none;
@@ -80,4 +56,7 @@ h4 {
 }
 .delivery {
   font: bold 1.8em Tahoma, Arial, Geneva, Kalimati, sans-serif;
+}
+.vargen {
+  background-color: #f5f4f0;
 }

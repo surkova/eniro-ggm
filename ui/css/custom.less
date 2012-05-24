@@ -1,5 +1,6 @@
 @fontBase: Tahoma, Arial, Geneva, Kalimati, sans-serif;
 @headerBase: "American Typewriter", "Helvetica Neue", Arial, sans-serif;
+@backgroundColor: #f5f4f0;
 body {
 	background-color: #eee;
 	font: 12px @fontBase;
@@ -8,36 +9,6 @@ body {
 header {
 	background-color: #424242;
 	height: 60px;
-}
-nav {
-	.nav {
-		margin-bottom: 0px;
-	}
-	.nav-tabs {
-		border: none;
-		.active {
-			a {
-				background-color: #eee;
-				color: #000;
-				&:hover {
-					background-color: #eee;
-					color: #000;
-				}
-			}
-		}
-		li {
-			a {
-				color: #eee;
-				padding: 5px 14px;
-				line-height: 10px;
-				&:hover {
-					color: #95C7F6;
-					background: none;
-					border-color: transparent;
-				}
-			}
-		}
-	}
 }
 article {
 	.container {
@@ -68,7 +39,7 @@ h4 {
 }
 #mymap {
 	width: 600px;
-	height: 500px;
+	height: 385px;
 	.e-map:focus {
         outline: none;
 	}
@@ -92,4 +63,7 @@ h4 {
 }
 .delivery {
 	font: bold 1.8em @fontBase;
+}
+.vargen {
+	background-color: @backgroundColor;
 }
