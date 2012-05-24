@@ -1,11 +1,12 @@
 $(function () {
 	var currentLocation;
+	var map;
 
 	//initialize and manipulate the map
 	function initMap() {
 		var mapDiv = document.getElementById('map');
 
-		var map = new eniro.maps.Map(mapDiv, {
+		map = new eniro.maps.Map(mapDiv, {
 			myLocationControl: true,
 			center: new eniro.maps.LatLng(59.33247, 18.11905),
 			zoom: 6
@@ -26,6 +27,8 @@ $(function () {
 	$("#datepicker").attr("placeholder", "Idag");
 
 	//search
+	var marker;
+	var markers = [];
 	$("#sok").click(function () {
 		//take the content of the input field
 		var req = $("#req").val();
@@ -49,9 +52,27 @@ $(function () {
 			},
 			function(proximityData) {
 				$("#searchResults").empty();
+				$.each(markers, function (key, val) {
+					val.setMap(null);
+				});
+				markers = [];
 
 				$.each(proximityData.adverts, function (key, val) {
+					//adding markers and listen for clicks on their icons
+					marker = new eniro.maps.Marker({
+						position: new eniro.maps.LatLng(val.location.coordinates[0].latitude, val.location.coordinates[0].longitude),
+						map: map
+					});
+					eniro.maps.event.addListener(marker, 'click', function () {
+						var infoWindow = new eniro.maps.InfoWindow();
+						infoWindow.setContent(val.companyInfo.companyName);
+						infoWindow.open(marker);
+					});
+					
+					//array of markers to destroy them afterwards
+					markers.push(marker);
 
+					//request for json
 					$.getJSON("http://api.eniro.com/rs/company/basic", {
 						profile: "ggmrejta",
 						key: "4887234730381502142",
@@ -75,9 +96,7 @@ $(function () {
 						});
 					});
 				})
-
 			});
 		return false;
 	});
-	
 });
