@@ -1,6 +1,7 @@
 $(function () {
 	var currentLocation;
 	var map;
+	var map_container = $("#map");
 
 	//initialize and manipulate the map
 	function initMap() {
@@ -11,7 +12,9 @@ $(function () {
 			zoom: 6
 		});
 	};
+
 	initMap();
+	map_container.hide();
 
 	//datepicker initialization
 	$("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
@@ -39,6 +42,8 @@ $(function () {
 				search_word: req
 			},
 			function(proximityData) {
+                map_container.hide();
+
 				$("#searchResults").empty();
 
 				$.each(markers, function (key, val) {
@@ -53,18 +58,19 @@ $(function () {
 				$.each(proximityData.adverts, function (key, val) {
 					//adding markers and listen for clicks on their icons
 					if (val.location.coordinates[0].latitude !== null) {
+                        map_container.show();
 						marker = new eniro.maps.Marker({
 							position: new eniro.maps.LatLng(val.location.coordinates[0].latitude, val.location.coordinates[0].longitude),
 							map: map
 						});
-						
+
 						eniro.maps.event.addListener(marker, 'click', function () {
 							infoWindow = new eniro.maps.InfoWindow();
 							infoWindow.setContent(val.companyInfo.companyName);
 							infoWindow.open(this);
 							infoWindows.push(infoWindow);
 						});
-						
+
 						//array of markers to destroy them afterwards
 						markers.push(marker);
 					};
@@ -81,8 +87,8 @@ $(function () {
 						var tpl = $('#searchTpl').html();
 						var searchHit = Mustache.to_html(tpl, {x: val, r: ratingData});
 						$('#searchResults').append(searchHit);
-						
-						/*button "leverera från dom" that appears in the search results. 
+
+						/*button "leverera från dom" that appears in the search results.
 						it copies delivery company's address to the form input*/
 						$(".deliveryHere").click(function () {
 							var address = $(this).parent().parent().find(".deliveryAddress").html();
