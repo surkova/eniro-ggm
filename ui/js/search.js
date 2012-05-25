@@ -7,16 +7,9 @@ $(function () {
 		var mapDiv = document.getElementById('map');
 
 		map = new eniro.maps.Map(mapDiv, {
-			//myLocationControl: true,
 			center: new eniro.maps.LatLng(59.33247, 18.11905),
 			zoom: 6
 		});
-
-		/*$(".e-mylocation:not(.e-mylocation-active)").click(function () {
-			eniro.maps.event.addListener(map, 'center_changed', function () {
-				currentLocation = map.getCenter();
-			} );
-		});*/
 	};
 	initMap();
 
@@ -29,14 +22,11 @@ $(function () {
 	//search
 	var marker;
 	var markers = [];
+	var infoWindow;
+	var infoWindows = [];
 	$("#sok").click(function () {
 		//take the content of the input field
 		var req = $("#req").val();
-
-		/*if (jQuery.isEmptyObject(currentLocation)) {
-			$("#searchResults").append("<p>Var är du nånstans?</p>");
-			return false;
-		}*/
 
 		/*pass req and current geolocation, get json response from Eniro
 		display company name with rejta url, rejta rating, company address and phone for each hit
@@ -55,21 +45,29 @@ $(function () {
 					val.setMap(null);
 				});
 				markers = [];
+				$.each(infoWindows, function (key, val) {
+					val.close();
+				});
+				infoWindows = [];
 
 				$.each(proximityData.adverts, function (key, val) {
 					//adding markers and listen for clicks on their icons
-					marker = new eniro.maps.Marker({
-						position: new eniro.maps.LatLng(val.location.coordinates[0].latitude, val.location.coordinates[0].longitude),
-						map: map
-					});
-					eniro.maps.event.addListener(marker, 'click', function () {
-						var infoWindow = new eniro.maps.InfoWindow();
-						infoWindow.setContent(val.companyInfo.companyName);
-						infoWindow.open(this);
-					});
-					
-					//array of markers to destroy them afterwards
-					markers.push(marker);
+					if (val.location.coordinates[0].latitude !== null) {
+						marker = new eniro.maps.Marker({
+							position: new eniro.maps.LatLng(val.location.coordinates[0].latitude, val.location.coordinates[0].longitude),
+							map: map
+						});
+						
+						eniro.maps.event.addListener(marker, 'click', function () {
+							infoWindow = new eniro.maps.InfoWindow();
+							infoWindow.setContent(val.companyInfo.companyName);
+							infoWindow.open(this);
+							infoWindows.push(infoWindow);
+						});
+						
+						//array of markers to destroy them afterwards
+						markers.push(marker);
+					};
 
 					//request for json
 					$.getJSON("http://api.eniro.com/rs/company/basic", {
