@@ -25,72 +25,71 @@
 			<div class="container">
 				<div class="row">
 					<div class="span12">
-					<h2>Karta</h2>
 					
 					<div class="row">
-						<div class="span5">
+						<div class="span8">
+							<h2>Sök</h2>
+							<div>
+								<form class="form-search">
+									<input placeholder="Vad?" id="req" class="input-xxlarge search-query">
+									<button class="btn" id="sok">Sök</button>
+								</form>
+							</div>
+							<div id="searchResults">
+								<!--this div should be cleaned up to refresh search results-->
+							</div>
+							<script id="searchTpl" type="text/template">
+							<div class="well">
+								<div class="row">
+									<div class="span4">
+										<h3>
+											<a href="{{x.companyReviews}}">{{#x.companyInfo}}{{companyName}}{{/x.companyInfo}}</a>
+										{{#r.adverts}}
+											{{#rating.averageRating}}<span class="badge badge-important" title="Rejta rating"><i class="icon-thumbs-up icon-white"></i> {{rating.averageRating}}</span>{{/rating.averageRating}}
+											{{^rating.averageRating}}{{/rating.averageRating}}
+										{{/r.adverts}}
+										</h3>
+										{{#x.address}}
+											<p class="deliveryAddress">{{streetName}}<br />{{postCode}} {{postArea}}</p>
+										{{/x.address}}
+										{{#x.phoneNumbers}}
+											<span>{{type}} {{phoneNumber}}</span><br />
+										{{/x.phoneNumbers}}
+									</div>
+									<div class="span3">
+										<button class="btn deliveryHere">
+											<i class="icon-circle-arrow-right"></i> Leverera från dom
+										</button>
+									</div>
+								</div>
+							</div>
+							</script>
+						</div>
+					<div class="span4">
+						<div class="hero-unit small">
+							<h1>Rödluvans budservice</h1>
+							<form class="form-search">
+								<label class="delivery">Leverera från</label>
+								<input class="span3" placeholder="Skriv in företagsadress" id="deliveryFrom">
+								<span class="help-block">Exempel: Odengatan 13 Stockholm</span>
+								<label class="delivery">Datum</label>
+								<input type="text" id="datepicker" class="span3">
+								<span class="help-block">Skriv in leveransdatum</span>
+								<button class="btn btn-danger btn-large" id="deliveryAction">Leverera till mig!</button>
+							</form>
+						</div>
+						<div>
 							<div id="map">
+								<h2>Karta</h2>
 								<!--the map-->
 							</div>
 						</div>
-						<div class="span7">
-							<div class="hero-unit">
-								<h1>Rödluvans budservice</h1>
-								<form class="form-search">
-									<label class="delivery">Leverera från</label>
-									<input class="span5" placeholder="Skriv in företagsadress" id="deliveryFrom">
-									<span class="help-block">Exempel: Odengatan 13 Stockholm</span>
-									<label class="delivery">Datum</label>
-									<input type="text" id="datepicker" class="span5">
-									<span class="help-block">Skriv in leveransdatum</span>
-									<button class="btn btn-danger btn-large">Leverera till mig!</button>
-								</form>
-							</div>
-						</div>
 					</div>
 					</div>
 				</div>
-				<hr />
+					</div>
+				</div>
 				<div class="row">
-					<div class="span12">
-						<h2>Sök</h2>
-						<div>
-							<form class="form-search">
-								<input placeholder="Vad?" id="req" class="input-xxlarge search-query">
-								<button class="btn" id="sok">Sök</button>
-							</form>
-						</div>
-						<div id="searchResults">
-							<!--this div should be cleaned up to refresh search results-->
-						</div>
-						<script id="searchTpl" type="text/template">
-						<div class="well">
-							<div class="row">
-								<div class="span5">
-									<h3>
-										<a href="{{x.companyReviews}}">{{#x.companyInfo}}{{companyName}}{{/x.companyInfo}}</a>
-									{{#r.adverts}}
-										{{#rating.averageRating}}<span class="badge badge-important" title="Rejta rating"><i class="icon-thumbs-up icon-white"></i> {{rating.averageRating}}</span>{{/rating.averageRating}}
-										{{^rating.averageRating}}{{/rating.averageRating}}
-									{{/r.adverts}}
-									</h3>
-									{{#x.address}}
-										<p class="deliveryAddress">{{streetName}}<br />{{postCode}} {{postArea}}</p>
-									{{/x.address}}
-									{{#x.phoneNumbers}}
-										<span>{{type}} {{phoneNumber}}</span><br />
-									{{/x.phoneNumbers}}
-								</div>
-								<div class="span3">
-									<button class="btn deliveryHere">
-										<i class="icon-circle-arrow-right"></i> Leverera från dom
-									</button>
-								</div>
-							</div>
-						</div>
-						</script>
-					</div>
-				</div>
 			</div>
 		</article>
 		<script type="text/javascript" src="js/search.js"></script>

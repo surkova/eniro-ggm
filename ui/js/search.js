@@ -7,16 +7,16 @@ $(function () {
 		var mapDiv = document.getElementById('map');
 
 		map = new eniro.maps.Map(mapDiv, {
-			myLocationControl: true,
+			//myLocationControl: true,
 			center: new eniro.maps.LatLng(59.33247, 18.11905),
 			zoom: 6
 		});
 
-		$(".e-mylocation:not(.e-mylocation-active)").click(function () {
+		/*$(".e-mylocation:not(.e-mylocation-active)").click(function () {
 			eniro.maps.event.addListener(map, 'center_changed', function () {
 				currentLocation = map.getCenter();
 			} );
-		});
+		});*/
 	};
 	initMap();
 
@@ -50,6 +50,7 @@ $(function () {
 			},
 			function(proximityData) {
 				$("#searchResults").empty();
+
 				$.each(markers, function (key, val) {
 					val.setMap(null);
 				});
@@ -95,6 +96,14 @@ $(function () {
 					});
 				})
 			});
+		return false;
+	});
+
+	//actions for "Leverera till mig!" button
+	$("#deliveryAction").click(function () {
+		$("#deliveryFrom").val('');
+		$("#datepicker").val('');
+		alert("Tack!");
 		return false;
 	});
 });
