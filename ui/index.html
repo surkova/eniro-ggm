@@ -63,7 +63,7 @@
 				var infoWindow = new eniro.maps.InfoWindow();
 
 				eniro.maps.event.addListener(mark, 'click', function () {
-					infoWindow.setContent("<div class='popupInfo'><h6><a href='#'>Indiska blommor</a></h6>Orkide – <em>1m rupiah</em>,<br />Rosor – <em>500k rupiah</em><br /><img src='img/osd-flower-icon-fullsize.png'></div>");
+					infoWindow.setContent("<div class='popupInfo'><h6><a href='#'>Indiska blommor</a></h6>Skynda dig att se!<br /><img src='img/osd-flower-icon-fullsize.png'></div>");
 					infoWindow.open(mark);
 				});
 
@@ -80,7 +80,7 @@
 				var infoWindow = new eniro.maps.InfoWindow();
 
 				eniro.maps.event.addListener(mark1, 'click', function () {
-					infoWindow.setContent("<div class='popupInfo'><h6><a href='#'>Ryska blommor</a></h6>Orkide – <em>100 rubler</em>,<br />Rosor – <em>500 rubler</em><br /><img src='img/pollen-flower-icon-fullsize.png'></div>");
+					infoWindow.setContent("<div class='popupInfo'><h6><a href='#'>Ryska blommor</a></h6>Perfekt för Eurovision babushkor!<br /><img src='img/pollen-flower-icon-fullsize.png'></div>");
 					infoWindow.open(mark1);
 				});
 
@@ -94,12 +94,29 @@
 				);
 
 				// we use one info window instance to only ever open one popup
-				var infoWindow = new eniro.maps.InfoWindow();
 
 				eniro.maps.event.addListener(mark2, 'click', function () {
-					infoWindow.setContent("<div class='popupInfo'><h6><a href='#'>Franska blommor</a></h6>Orkide – <em>5 euro</em>,<br />Rosor – <em>10 euro</em><br /><img src='img/rose-icon-fullsize.png'></div>");
+					infoWindow.setContent("<div class='popupInfo'><h6><a href='#'>Franska blommor</a></h6>Utsökta blommor för den kräsne!<br /><img src='img/rose-icon-fullsize.png'></div>");
 					infoWindow.open(mark2);
 				});
+
+				//FORTH MARKER
+
+				var mark3 = new eniro.maps.Marker({
+						position: new eniro.maps.LatLng(57.21531, 12.85305), 
+						icon: 'img/roze_2.png',
+						map: mymap  // by providing map the marker is directly added
+					}
+				);
+
+				// we use one info window instance to only ever open one popup
+
+				eniro.maps.event.addListener(mark3, 'click', function () {
+					infoWindow.setContent("<div class='popupInfo'><h6><a href='#'>Svenska rosor</a></h6>När de är som bäst<br /><img src='img/roze.png'></div>");
+					infoWindow.open(mark3);
+				});
+
+				
 			}
 		</script>
 	</body>
