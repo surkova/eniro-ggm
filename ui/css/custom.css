@@ -52,8 +52,8 @@ h4 {
 }
 #searchResults img {
   position: relative;
-  top: 180px;
-  right: -250px;
+  top: 0;
+  right: -220px;
 }
 .delivery {
   font: bold 1.8em Tahoma, Arial, Geneva, Kalimati, sans-serif;
