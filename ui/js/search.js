@@ -105,6 +105,14 @@ $(function () {
 
 	//actions for "Leverera till mig!" button
 	$("#deliveryAction").click(function () {
+		if ($("#deliveryFrom").val() == '') {
+			alert ("Oj! Leveransadress saknas!");
+			return false;
+		}
+		if ($("#datepicker").val() == '') {
+			alert ("Oj! När vill du att vi levererar?");
+			return false;
+		}
 		$("#deliveryFrom").val('');
 		$("#datepicker").val('');
 		alert("Tack!");
