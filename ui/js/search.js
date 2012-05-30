@@ -1,9 +1,6 @@
 $(function () {
-	var currentLocation;
+	//initialize and manipulate and hide the map onload
 	var map;
-	var map_container = $("#map");
-
-	//initialize and manipulate the map
 	function initMap() {
 		var mapDiv = document.getElementById('map');
 
@@ -12,9 +9,8 @@ $(function () {
 			zoom: 6
 		});
 	};
-
 	initMap();
-	map_container.hide();
+	$("#map").hide();
 
 	//datepicker initialization
 	$("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
@@ -22,16 +18,16 @@ $(function () {
 	$("#datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
 	$("#datepicker").attr("placeholder", "Idag");
 
-	//search
+	//search and markers on the maps
 	var marker;
 	var markers = [];
 	var infoWindow;
 	var infoWindows = [];
-	$("#sok").click(function () {
+	$("#searchBtn").click(function () {
 		//take the content of the input field
 		var req = $("#req").val();
 
-		/*pass req and current geolocation, get json response from Eniro
+		/*pass search query, get json response from Eniro
 		display company name with rejta url, rejta rating, company address and phone for each hit
 		return false not to refresh the page*/
 		$.getJSON("http://api.eniro.com/cs/search/basic", {
@@ -41,11 +37,12 @@ $(function () {
 				version: "1.1.3",
 				search_word: req
 			},
-			function(proximityData) {
-                map_container.hide();
+			function(searchData) {
+                $("#map").hide();
 
 				$("#searchResults").empty();
 
+				//reset the markers and infoWindows that have been added and opened
 				$.each(markers, function (key, val) {
 					val.setMap(null);
 				});
@@ -55,10 +52,12 @@ $(function () {
 				});
 				infoWindows = [];
 
-				$.each(proximityData.adverts, function (key, val) {
-					//adding markers and listen for clicks on their icons
+				//for each search hit
+				$.each(searchData.adverts, function (key, val) {
+
+					//add marker and listen for clicks on its icon
 					if (val.location.coordinates[0].latitude !== null) {
-                        map_container.show();
+                        $("#map").show();
 						marker = new eniro.maps.Marker({
 							position: new eniro.maps.LatLng(val.location.coordinates[0].latitude, val.location.coordinates[0].longitude),
 							map: map
@@ -75,7 +74,7 @@ $(function () {
 						markers.push(marker);
 					};
 
-					//request for json
+					//request rating
 					$.getJSON("http://api.eniro.com/rs/company/basic", {
 						profile: "ggmrejta",
 						key: "4887234730381502142",
@@ -103,7 +102,7 @@ $(function () {
 		return false;
 	});
 
-	//actions for "Leverera till mig!" button
+	//pretend that we send the form
 	$("#deliveryAction").click(function () {
 		if ($("#deliveryFrom").val() == '') {
 			alert ("Oj! Leveransadress saknas!");
