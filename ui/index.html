@@ -41,14 +41,19 @@
 		<script type="text/javascript">
 			function initMyMap() {
 				// get reference to the DIV that will hold the map.
+
+
+
 				var mymapDiv = document.getElementById('mymap');
 
-				// start an eniro map in the DIV.
+
+
 				var mymap = new eniro.maps.Map(mymapDiv, {
 					center: new eniro.maps.LatLng(59.38453, 18.01366),
 					zoom: 11,
 					searchBoxControl: true
 				});
+
 
 				//FIRST MARKER
 
@@ -63,7 +68,7 @@
 				var infoWindow = new eniro.maps.InfoWindow();
 
 				eniro.maps.event.addListener(mark, 'click', function () {
-					infoWindow.setContent("<div class='popupInfo'><h6><a href='#'>Indiska blommor</a></h6>Skynda dig att se!<br /><img src='img/osd-flower-icon-fullsize.png'></div>");
+					infoWindow.setContent("<div class='popupInfo'> [...]</div>");
 					infoWindow.open(mark);
 				});
 
